@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import Test from './components/Test'
+import PostRequest from './components/PostRequest'
 import './App.css'
 
 function App() {
@@ -16,21 +17,10 @@ function substract() {
 }
   return (
     <div className="App">
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={substract}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    <Test parent={'app'}/>
+      <Test parent={"app"} />
+      <PostRequest />
     </div>
-  )
+  );
 }
 
 export default App

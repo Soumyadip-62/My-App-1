@@ -1,35 +1,56 @@
 import React, { useEffect, useState } from "react";
 
-
 export default function Test({ parent }) {
-const [location, setlocation] = useState(null)
+  // const [location, setlocation] = useState(null);
 
-  async function getWheather() {
+  const [todo, settodo] = useState({
+    completed: false,
+    id: 0,
+    title: "title",
+    userId: 0,
+  });
+
+  const data = {
+    title: "todo",
+    body: "Body",
+    userId: 1,
+  };
+  
+
+  const getTodos = async () => {
     const response = await fetch(
-      `http://api.weatherstack.com/current?access_key=4c014f491dd8d82a124920e2647a8f61&query=New Delhi`
+      `https://jsonplaceholder.typicode.com/todos/1`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      }
     );
 
     const res = await response.json();
-    console.log(res.location);
-    setlocation(res.location)
-  }
+    settodo({
+      id: res.id,
+      title: res.title,
+      userId: res.userId,
+      completed: res.completed
+    })
+  };
+
+ 
+
+  return (
+    <div>
+      <button onClick={getTodos}>Click me to get todos</button>
+
+      <h2>{todo.id}</h2>
+      <h2>{todo.completed ? "true" : "false"}</h2>
+      <h2>{todo.title}</h2>
+      <h2>{todo.userId}</h2>
 
 
-  useEffect(() => {
-    
-  getWheather()
-   
-  }, [])
-  
 
-
-
-  return <div>
-    <ul>
-        <li>
-            {/* list all the elements from location object */}
-
-        </li>
-    </ul>
-  </div>;
+    </div>
+  );
 }
