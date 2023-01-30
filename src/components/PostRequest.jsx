@@ -52,7 +52,7 @@ const PostRequest = () => {
         type="text"
         onChange={(event) => handleChange(event)}
       />
-      <button onClick={setTodos}>Submit</button>
+      <button className='btn btn-dark' onClick={setTodos}>Submit</button>
     </div>
   );
 }

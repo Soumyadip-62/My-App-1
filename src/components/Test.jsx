@@ -41,16 +41,18 @@ export default function Test({ parent }) {
  
 
   return (
-    <div>
-      <button onClick={getTodos}>Click me to get todos</button>
-
-      <h2>{todo.id}</h2>
-      <h2>{todo.completed ? "true" : "false"}</h2>
-      <h2>{todo.title}</h2>
-      <h2>{todo.userId}</h2>
-
-
-
+    <div className="p-4">
+      <button className="btn btn-dark" onClick={getTodos}>
+        Click me to get todos
+      </button>
+      <div className="row gap-2">
+        <h2 className="col  btn btn-primary">{todo.id}</h2>
+        <h2 className="col  btn btn-primary">
+          {todo.completed ? "true" : "false"}
+        </h2>
+        <h2 className="col  btn btn-primary">{todo.title}</h2>
+        <h2 className="col  btn btn-primary">{todo.userId}</h2>
+      </div>
     </div>
   );
 }
